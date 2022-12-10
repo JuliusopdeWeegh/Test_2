@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border:2px solid red;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            margin:2px;
+        }
+    </style>
+    <script>
+        // 1 functionele doelstelling concreet opknippen??!!
+        //    Model View Controller
+        // 2 technische strategy
+        //     div border
+        // 3 coderen
+        var spelbord = [
+            [0,0],
+            [0,0]
+        ]
+        window.onload = tekenbord;
+        function tekenbord(){
+            for(var x =0; x < spelbord.length; x++){
+                for(var y =0; y< spelbord[x].length; y++){
+                    console.log(spelbord[x][y]);
+                    if(spelbord[x][y] == 0){
+                        document.getElementById("b"+x+""+y).style.backgroundColor = 'white';
+                    }
+                    if(spelbord[x][y] == 1){
+                        document.getElementById("b"+x+""+y).style.backgroundColor = 'red';
+                    }
+                    if(spelbord[x][y] == 2){
+                        document.getElementById("b"+x+""+y).style.backgroundColor = 'blue';
+                    }
+                }
+            }
+        }
+        function speel(divje){
+            console.log(divje.id[1]);
+            console.log(divje.id[2]);
+            spelbord[divje.id[1]][divje.id[2]] = 1;
+            tekenbord();
+        }
+    </script>
+</head>
+<body>
+
+
+    <div id="b00" onclick="speel(this)"></div><div id="b01" onclick="speel(this)"></div>
+    <br>
+    <div id="b10" onclick="speel(this)"></div><div id="b11" onclick="speel(this)"></div>
+
+</body>
+</html>
